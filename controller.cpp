@@ -14,7 +14,7 @@ bool Controller::broadcast(Message* message){
 }
 
  bool Controller::addModule(Module* module){
-   if(!module){return false;}
+   if(!module){return 0;}
    modules.push_back(module);
-   return true;
+   return 1;
 }
