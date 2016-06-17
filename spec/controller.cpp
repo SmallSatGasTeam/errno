@@ -1,12 +1,9 @@
-#include "../controller.cpp"
-// #include "../module.cpp"
-
 class TestModule: public Module{
   public:
   TestModule(Controller* control): Module(control){}
   std::vector<Message*> m;
 
-  int receive(Message* message){
+  bool receive(Message* message){
     m.push_back(message);
     return 0;
   }
