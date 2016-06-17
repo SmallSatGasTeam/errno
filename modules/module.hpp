@@ -32,6 +32,7 @@ class Module{
 public:
   Module(Controller* control);
   virtual bool receive(Message* message);
+  virtual bool status();
 private:
   bool broadcast(Message* message);
 

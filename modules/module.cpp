@@ -25,3 +25,8 @@ bool Module::broadcast(Message* message){
   controller->broadcast(message);
   return 1;
 }
+
+bool Module::status(){
+  if(controller){return 1;}
+  return 0;
+}
