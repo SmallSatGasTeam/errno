@@ -1,15 +1,3 @@
-
-class TestController: public Controller{
-public:
-  bool broadcast(Message* message){
-    m.push_back(message);
-    return 1;
-  }
-
-  std::vector<Message*> m;
-};
-
-
 TEST(Module, Broadcast) {
     TestController testControl;
     Module mod(&testControl);

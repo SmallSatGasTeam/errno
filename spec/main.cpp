@@ -1,9 +1,19 @@
 #include <gtest/gtest.h>
 
-#include "../modules/module.cpp"
+
+// Import Mocks
+#include "mocks.cpp"
+
+// Import Source
 #include "../controller.cpp"
-#include "module.cpp"
+#include "../modules/module.cpp"
+#include "../modules/CameraModule/CameraModule.cpp"
+
+// Import Tests
 #include "controller.cpp"
+#include "module.cpp"
+// #include "modules/CameraModule/CameraModule.cpp"
+
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
