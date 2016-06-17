@@ -3,6 +3,7 @@
 
 #include <string>
 
+#include "actions.h"
 #include "constants.h"
 #include "controller.hpp"
 
@@ -29,13 +30,12 @@ class Controller;
  */
 class Module{
 public:
-  Module(Controller* control){}
-  //TODO action should be a constant defined in actions
-  virtual int receive(Message* message){}
+  Module(Controller* control);
+  virtual bool receive(Message* message);
 private:
-  int broadcast(Message* message);
+  bool broadcast(Message* message);
 
-  Controller* control;
+  Controller* controller;
 };
 
 #endif
