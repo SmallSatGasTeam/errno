@@ -12,7 +12,7 @@
 // Import Tests
 #include "controller.cpp"
 #include "module.cpp"
-// #include "modules/CameraModule/CameraModule.cpp"
+#include "modules/CameraModule/CameraModule.cpp"
 
 
 int main(int argc, char **argv) {
