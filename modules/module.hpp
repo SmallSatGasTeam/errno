@@ -3,9 +3,9 @@
 
 #include <string>
 
-#include "actions.h"
-#include "constants.h"
-#include "controller.hpp"
+#include "../actions.h"
+#include "../constants.h"
+#include "../controller.hpp"
 
 /**
  * Forward declaration of Controller class so we can use it in this class

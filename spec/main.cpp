@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../module.cpp"
+#include "../modules/module.cpp"
 #include "../controller.cpp"
 #include "module.cpp"
 #include "controller.cpp"

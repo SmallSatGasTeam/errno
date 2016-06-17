@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "constants.h"
-#include "module.hpp"
+#include "modules/module.hpp"
 
 /**
  * Forward declaration of Module so we can use it in this class
