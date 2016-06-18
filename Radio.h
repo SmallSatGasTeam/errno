@@ -7,7 +7,7 @@ class Radio{
 		//file descriptor
 		int fd;
 	public:
-	Radio(char* device = "radio1", int baud = 9600);
+	Radio(char* device = "/dev/ttyUSB0", int baud = 9600);
 	~Radio();
 	void pushTx(char* telem);
 
