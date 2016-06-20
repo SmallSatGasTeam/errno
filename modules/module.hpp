@@ -33,6 +33,7 @@ public:
   Module(Controller* control);
   virtual bool receive(Message* message);
   virtual bool status();
+  bool task(void (*task)(), Message* done); //TODO implement task!
 private:
   bool broadcast(Message* message);
 

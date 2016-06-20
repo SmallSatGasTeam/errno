@@ -30,3 +30,8 @@ bool Module::status(){
   if(controller){return 1;}
   return 0;
 }
+
+bool task(void (*task)(), Message* done){
+  std::thread worker (taskRunner);
+  worker.detach();
+}
