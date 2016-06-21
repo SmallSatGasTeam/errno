@@ -45,13 +45,17 @@ void Module::taskRunner(void (*task)(), Message* done){
   }
 }
 
-bool Module::runTask(void (*task)(), Message* done){
+void Module::runTask(void (*task)(), Message* done){
   std::thread worker([this, task, done] { taskRunner(task, done); });
   worker.detach();
 }
 
 std::vector<Message*> Module::read(){
+  // Lock down reading from messages vector in case
+  // another thread is also trying to use it. 
+  mtx.lock();
   std::vector<Message*> temp = messages;
+  mtx.unlock();
   messages.erase(messages.begin(), messages.end());
   return temp;
 }
