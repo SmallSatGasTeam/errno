@@ -1,8 +1,8 @@
 
 TEST(Controller, Broadcast) {
   Controller c;
-  TestModule* a = new TestModule(&c);
-  TestModule* b = new TestModule(&c);
+  TestModule* a = new TestModule();
+  TestModule* b = new TestModule();
   c.addModule(a);
   c.addModule(b);
   Message* m = new Message(0, "TestMessage");
