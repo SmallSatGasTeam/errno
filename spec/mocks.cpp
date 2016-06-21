@@ -13,7 +13,6 @@ public:
 
 class TestModule: public Module{
   public:
-  TestModule(Controller* control): Module(control){}
   std::vector<Message*> m;
 
   bool receive(Message* message){
