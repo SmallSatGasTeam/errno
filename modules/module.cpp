@@ -22,9 +22,8 @@ bool Module::receive(Message* message){
 }
 
 bool Module::broadcast(Message* message){
-  if(!controller || !message){return 0;}
-
-  controller->broadcast(message);
+  if(!message){return 0;}
+  messages.push_back(message);
   return 1;
 }
 

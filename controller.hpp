@@ -20,8 +20,10 @@ public:
   // Controller(); TODO things? maybe?
   bool broadcast(Message* message);
   bool addModule(Module* module);
-private:
+  std::vector<Message*> getMessages(){return messages;}
+  bool readModules();
 
+private:
   std::vector<Module*> modules;
   std::vector<Message*> messages;
 };

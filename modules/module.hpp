@@ -37,8 +37,8 @@ public:
   Module();
   virtual bool receive(Message* message);
   virtual bool status();
+  virtual std::vector<Message*> read();
   bool runTask(void (*task)(), Message* done);
-  std::vector<Message*> read();
 private:
   bool broadcast(Message* message);
   void taskRunner(void (*task)(), Message* done);

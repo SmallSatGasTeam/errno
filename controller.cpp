@@ -18,3 +18,11 @@ bool Controller::broadcast(Message* message){
    modules.push_back(module);
    return 1;
 }
+
+bool Controller::readModules(){
+  for(int i = 0; i < modules.size(); i++){
+    std::vector<Message*> temp = modules[i]->read();
+    messages.insert(messages.end(), temp.begin(), temp.end());
+  }
+  return 1;
+}
