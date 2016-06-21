@@ -1,6 +1,8 @@
 #include "module.hpp"
 
-Module::Module(Controller* control):controller(control){}
+std::mutex Module::mtx;
+
+Module::Module(){}
 
 bool Module::receive(Message* message){
     if(!message){return 0;}
@@ -27,11 +29,30 @@ bool Module::broadcast(Message* message){
 }
 
 bool Module::status(){
-  if(controller){return 1;}
   return 0;
 }
 
-bool task(void (*task)(), Message* done){
-  std::thread worker (taskRunner);
+void Module::taskRunner(void (*task)(), Message* done){
+  int pid = fork();
+  int status;
+  if(!pid){
+    task();
+  }
+  else{
+    waitpid(pid, &status, 0);
+    Module::mtx.lock();
+    messages.push_back(done);
+    Module::mtx.unlock();
+  }
+}
+
+bool Module::runTask(void (*task)(), Message* done){
+  std::thread worker([this, task, done] { taskRunner(task, done); });
   worker.detach();
+}
+
+std::vector<Message*> Module::read(){
+  std::vector<Message*> temp = messages;
+  messages.erase(messages.begin(), messages.end());
+  return temp;
 }

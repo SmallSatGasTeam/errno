@@ -2,6 +2,10 @@
 #define MODULE_H
 
 #include <string>
+#include <unistd.h>
+#include <thread>
+#include <mutex>
+#include <vector>
 
 #include "../actions.h"
 #include "../constants.h"
@@ -30,13 +34,17 @@ class Controller;
  */
 class Module{
 public:
-  Module(Controller* control);
+  Module();
   virtual bool receive(Message* message);
   virtual bool status();
-  bool task(void (*task)(), Message* done); //TODO implement task!
+  bool runTask(void (*task)(), Message* done);
+  std::vector<Message*> read();
 private:
   bool broadcast(Message* message);
+  void taskRunner(void (*task)(), Message* done);
 
+  std::vector<Message*> messages;
+  static std::mutex mtx;
   Controller* controller;
 };
 
