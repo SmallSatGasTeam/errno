@@ -2,7 +2,7 @@
 
 class CameraModule:public Module{
 public:
-  CameraModule(Controller* control);
+  CameraModule();
   bool receive(Message* message);
 private:
   bool takePhoto();

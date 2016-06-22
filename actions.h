@@ -6,3 +6,4 @@ Example:
 */
 
 const unsigned int EXAMPLE_ACTION = 1;
+const unsigned int PHOTO_TAKEN = 2;
