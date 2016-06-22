@@ -4,6 +4,6 @@ class CameraModule:public Module{
 public:
   CameraModule();
   bool receive(Message* message);
-private:
+//private:
   bool takePhoto();
 };

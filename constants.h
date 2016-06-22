@@ -1,6 +1,8 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#include <string> 
+
 struct Message {
   unsigned int action;
   std::string body;

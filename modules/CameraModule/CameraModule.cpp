@@ -1,8 +1,8 @@
 #include "CameraModule.hpp"
 
 void capture(){
-  sleep(1);
-  execlp("raspistill", "-o", "/home/photos/test.jpg", NULL);
+  system("raspistill -o test.jpg");
+ // execlp("raspistill",NULL, "-o", (char*) 0);
 }
 
 CameraModule::CameraModule(){}

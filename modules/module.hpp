@@ -2,6 +2,7 @@
 #define MODULE_H
 
 #include <string>
+#include <sys/wait.h>
 #include <unistd.h>
 #include <thread>
 #include <mutex>
