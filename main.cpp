@@ -1,15 +1,17 @@
 #include <string>
 #include <iostream>
 #include "actions.h"
-#include "constants.h" 
+#include "constants.h"
 #include "controller.hpp"
 #include "modules/CameraModule/CameraModule.hpp"
- 
+
 int main(void){
-  	Controller control; 
+	Controller controller;
 	CameraModule mod;
 	control.addModule(&mod);
 	mod.takePhoto();
-	sleep(10);	
-return 0;
+	sleep(10);
+
+  // C
+  return 0;
 }

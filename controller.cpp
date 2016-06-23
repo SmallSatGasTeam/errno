@@ -1,7 +1,6 @@
 #include "constants.h"
 #include "controller.hpp"
 
-// Controller::Controller(){}
 
 bool Controller::broadcast(Message* message){
   if(!message){return 0;} //If message is null, forget about it
@@ -22,6 +21,7 @@ bool Controller::broadcast(Message* message){
 bool Controller::readModules(){
   for(int i = 0; i < modules.size(); i++){
     std::vector<Message*> temp = modules[i]->read();
+    for(int j = 0; j < temp.size(); j++){this->broadcast(temp[j]);}
     messages.insert(messages.end(), temp.begin(), temp.end());
   }
   return 1;
