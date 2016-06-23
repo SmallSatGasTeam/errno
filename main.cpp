@@ -8,10 +8,16 @@
 int main(void){
 	Controller controller;
 	CameraModule mod;
-	control.addModule(&mod);
+	controller.addModule(&mod);
 	mod.takePhoto();
 	sleep(10);
 
-  // C
+  // CameraModule camera;
+	//
+  // controller.addModule(&camera);
+	//
+  // while(true){
+  //   controller.readModules();
+  // }
   return 0;
 }
