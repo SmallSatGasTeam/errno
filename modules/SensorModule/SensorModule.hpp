@@ -1,4 +1,5 @@
 #include "../module.hpp"
+#include "../Sensor.hpp"
 
 class SensorModule:public Module{
 public:
