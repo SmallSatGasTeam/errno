@@ -17,7 +17,6 @@ class Module;
  */
 class Controller{
 public:
-  // Controller(); TODO things? maybe?
   bool broadcast(Message* message);
   bool addModule(Module* module);
   std::vector<Message*> getMessages(){return messages;}
