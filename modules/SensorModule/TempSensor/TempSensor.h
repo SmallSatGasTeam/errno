@@ -1,3 +1,6 @@
+#ifndef TEMPERATURE_SENSOR_H
+#define TEMPERATURE_SENSOR_H
+
 #include "Sensor.h"
 
 class TempSensor:public Sensor{
@@ -8,4 +11,6 @@ private:
 	uint16_t swapWord(uint16_t value);
 	float getTempValue();
 
-}
+};
+
+#endif
