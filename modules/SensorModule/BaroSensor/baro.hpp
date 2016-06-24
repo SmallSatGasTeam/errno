@@ -1,3 +1,6 @@
+#ifndef BARO_SENSOR_HPP
+#define BARO_SENSOR_HPP
+
 #include "Sensor.h"
 
 Class Baro : public Sensor{
@@ -14,3 +17,6 @@ private:
 
 
 };
+
+
+#endif

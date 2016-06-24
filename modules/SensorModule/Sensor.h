@@ -1,3 +1,7 @@
+#ifndef SENSOR_MODULE_H
+#define SENSOR_MODULE_H
+
+
 class Sensor{
 public:
 	void write(); 
@@ -7,3 +11,5 @@ public:
 
 
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef LIGHT_SENSOR_HPP
+#define LIGHT_SENSOR_HPP
+
 #include "Sensor.h"
 
 
@@ -11,3 +14,6 @@ private:
 
 
 };
+
+
+#endif

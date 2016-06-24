@@ -1,3 +1,6 @@
+#ifndef GYRO_SENSOR_HPP
+#define GYRO_SENSOR_HPP
+
 #include "Sensor.h"
 
 
@@ -12,3 +15,5 @@ public:
 private:
 
 };
+
+#endif

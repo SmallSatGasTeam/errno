@@ -1,3 +1,6 @@
+#ifndef ULTRA_VIOLET_SENSOR_H
+#define ULTRA_VIOLET_SENSOR_H
+
 #include "Sensor.h"
 
 
@@ -14,4 +17,5 @@ private:
 
 };
 
+#endif
 
