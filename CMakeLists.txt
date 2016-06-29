@@ -1,5 +1,3 @@
-#g++ main.cpp -std=c++11 -lpthread controller.cpp modules/module.cpp modules/CameraModule/CameraModule.cpp
-
 cmake_minimum_required(VERSION 3.1)
 set (CMAKE_CXX_STANDARD 11)
 
@@ -12,4 +10,4 @@ add_executable(
   main.cpp
 )
 
-target_link_libraries(GAS  pthread)
+target_link_libraries(GAS pthread)

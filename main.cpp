@@ -11,14 +11,27 @@ int main(void){
 	// controller.addModule(&mod);
 	// mod.takePhoto();
 	// sleep(10);
-
+	
+	// Create controller
 	Controller controller;
-  CameraModule camera;
 
+	// Create modules
+  CameraModule camera;
+	SensorModule sensors;
+
+	// Create sensors
+	TempSensor temp_sensor;
+
+
+	// Add sensors
+	sensors.addSensor(&temp_sensor);
+
+	// Add modules
   controller.addModule(&camera);
 
   while(true){
     controller.readModules();
+		std::cout << "Howdy\n";
   }
   return 0;
 }

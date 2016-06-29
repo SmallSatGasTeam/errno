@@ -18,7 +18,7 @@ float TempSensor::getTempValue(){
 
 	value = ((res & 0xFF) <<8) | ((res>>8) & 0xFF);
 
-	printf("temp: %x \n", value);
+	// printf("temp: %x \n", value);
 	bool neg = (value & 0x1000);
 	float res = (value & 0xFFF) / 16.0;
 	if (neg) res = 0-(256-res);
