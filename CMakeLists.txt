@@ -7,6 +7,7 @@ add_executable(
   controller.cpp
   modules/module.cpp
   modules/CameraModule/CameraModule.cpp
+  modules/SensorModule/TempSensor.cpp
   main.cpp
 )
 
