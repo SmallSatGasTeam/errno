@@ -11,6 +11,6 @@ private:
 	uint16_t swapWord(uint16_t value);
 	float getTempValue();
 
-}
+};
 
 #endif

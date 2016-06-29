@@ -32,17 +32,17 @@ bool Module::status(){
 }
 
 void Module::taskRunner(void (*task)(), Message* done){
-  int pid = fork();
-  int status;
-  if(!pid){
-    task();
-  }
-  else{
-    waitpid(pid, &status, 0);
-    Module::mtx.lock();
-    messages.push_back(done);
-    Module::mtx.unlock();
-  }
+  // int pid = fork();
+  // int status;
+  // if(!pid){
+  task();
+  // }
+  // else{
+    // waitpid(pid, &status, 0);
+  Module::mtx.lock();
+  messages.push_back(done);
+  Module::mtx.unlock();
+  // }
 }
 
 void Module::runTask(void (*task)(), Message* done){
@@ -52,7 +52,7 @@ void Module::runTask(void (*task)(), Message* done){
 
 std::vector<Message*> Module::read(){
   // Lock down reading from messages vector in case
-  // another thread is also trying to use it. 
+  // another thread is also trying to use it.
   mtx.lock();
   std::vector<Message*> temp = messages;
   mtx.unlock();
