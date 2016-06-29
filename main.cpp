@@ -4,6 +4,7 @@
 #include "constants.h"
 #include "controller.hpp"
 #include "modules/CameraModule/CameraModule.hpp"
+#include "modules/SensorModule/TempSensor.hpp"
 
 int main(void){
 	// Controller controller;
@@ -11,7 +12,7 @@ int main(void){
 	// controller.addModule(&mod);
 	// mod.takePhoto();
 	// sleep(10);
-	
+
 	// Create controller
 	Controller controller;
 
