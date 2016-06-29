@@ -8,12 +8,13 @@
 #include "../controller.cpp"
 #include "../modules/module.cpp"
 #include "../modules/CameraModule/CameraModule.cpp"
+#include "../modules/SensorModule/SensorModule.cpp"
 
 // Import Tests
 #include "controller.cpp"
 #include "module.cpp"
 #include "modules/CameraModule/CameraModule.cpp"
-
+#include "modules/SensorModule/SensorModule.cpp"
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);

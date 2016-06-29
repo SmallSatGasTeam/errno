@@ -1,11 +1,11 @@
-#ifndef TEMPERATURE_SENSOR_H
-#define TEMPERATURE_SENSOR_H
+#ifndef TEMP_SENSOR_H
+#define TEMP_SENSOR_H
 
-#include "Sensor.h"
+#include "../sensor.hpp"
 
 class TempSensor:public Sensor{
 public:
-	float read();
+	std::string read();
 
 private:
 	uint16_t swapWord(uint16_t value);
