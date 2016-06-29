@@ -76,7 +76,7 @@ public:
    * @param  task - function containing work to be done
    */
   void runTask(void (*task)(), Message* done);
-private:
+protected:
 
   /**
    * Add's a message to interal message queue to be read by controller on next
@@ -92,7 +92,7 @@ private:
    * runTask
    *
    * @param task Function pointer to task to be run
-   * @param done Message to be passed when task is done 
+   * @param done Message to be passed when task is done
    */
   void taskRunner(void (*task)(), Message* done);
 

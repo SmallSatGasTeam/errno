@@ -10,6 +10,6 @@ Example:
 
 const unsigned int EXAMPLE_ACTION = 1;
 const unsigned int PHOTO_TAKEN = 2;
-const unsigned int BROADCAST = 3;
+const unsigned int PHONE_HOME = 3;
 
 #endif

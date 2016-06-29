@@ -4,6 +4,7 @@
 #include<stdint.h>
 #include<wiringPi.h>
 
+#include "TempSensor.hpp"
 
 uint16_t TempSensor::swapWord(uint16_t value) {
 	uint16_t res = value;
@@ -24,4 +25,8 @@ float TempSensor::getTempValue(){
 	return res;
 }
 
-float TempSensor::read(){return getTempValue();}
+std::string TempSensor::read(){
+	char buffer [25];
+	snprintf ( buffer, 25, "temp:%f", getTempValue());
+	return buffer;
+}

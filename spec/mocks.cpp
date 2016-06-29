@@ -1,4 +1,5 @@
 #include "../controller.hpp"
+#include "../modules/SensorModule/sensor.hpp"
 
 class TestController: public Controller{
 public:
@@ -23,6 +24,10 @@ class TestModule: public Module{
 
   std::vector<Message*> read(){return m;}
 
+};
+
+class TestSensor: public Sensor{
+  std::string read(){return "TestReading";}
 };
 
 void test_task(){

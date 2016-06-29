@@ -4,7 +4,7 @@
 
 class Sensor{
 public:
-	virtual std::string read();
+	virtual std::string read() = 0;
 
 };
 
