@@ -7,8 +7,9 @@ add_executable(
   controller.cpp
   modules/module.cpp
   modules/CameraModule/CameraModule.cpp
-  modules/SensorModule/TempSensor.cpp
+  modules/SensorModule/SensorModule.cpp
+  modules/SensorModule/TempSensor/TempSensor.cpp
   main.cpp
 )
 
-target_link_libraries(GAS pthread)
+target_link_libraries(GAS pthread wiringPi)

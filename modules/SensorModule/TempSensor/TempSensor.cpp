@@ -16,9 +16,9 @@ float TempSensor::getTempValue(){
 	int fd = wiringPiI2CSetup(0x18);
 	uint16_t value = wiringPiI2CReadReg16(fd,0x05);
 
-	value = ((res & 0xFF) <<8) | ((res>>8) & 0xFF);
-
+	//value = ((res & 0xFF) << 8) | (( res >> 8) & 0xFF);
 	// printf("temp: %x \n", value);
+
 	bool neg = (value & 0x1000);
 	float res = (value & 0xFFF) / 16.0;
 	if (neg) res = 0-(256-res);

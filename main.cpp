@@ -4,20 +4,15 @@
 #include "constants.h"
 #include "controller.hpp"
 #include "modules/CameraModule/CameraModule.hpp"
-#include "modules/SensorModule/TempSensor.hpp"
+#include "modules/SensorModule/SensorModule.hpp"
+#include "modules/SensorModule/TempSensor/TempSensor.hpp"
 
 int main(void){
-	// Controller controller;
-	// CameraModule mod;
-	// controller.addModule(&mod);
-	// mod.takePhoto();
-	// sleep(10);
-
 	// Create controller
 	Controller controller;
 
 	// Create modules
-  CameraModule camera;
+        CameraModule camera;
 	SensorModule sensors;
 
 	// Create sensors
@@ -28,11 +23,10 @@ int main(void){
 	sensors.addSensor(&temp_sensor);
 
 	// Add modules
-  controller.addModule(&camera);
+        controller.addModule(&camera);
 
-  while(true){
-    controller.readModules();
-		std::cout << "Howdy\n";
-  }
+         while(true){
+    	   controller.readModules();
+         } 
   return 0;
 }
