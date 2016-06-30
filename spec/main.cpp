@@ -5,14 +5,14 @@
 #include "mocks.cpp"
 
 // Import Source
-// #include "../controller.cpp"
-#include "../modules/module.cpp"
+#include "../controller.cpp"
+// #include "../modules/module.cpp"
 // #include "../modules/CameraModule/CameraModule.cpp"
 // #include "../modules/SensorModule/SensorModule.cpp"
 
 // Import Tests
 // #include "controller.cpp"
-#include "module.cpp"
+// #include "module.cpp"
 // #include "modules/CameraModule/CameraModule.cpp"
 // #include "modules/SensorModule/SensorModule.cpp"
 

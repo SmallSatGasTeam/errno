@@ -19,11 +19,11 @@ class Controller{
 public:
   bool broadcast(Message* message);
   bool addModule(Module* module);
-  std::vector<Message*> getMessages(){return messages;}
+  Message* getMessages();
   bool readModules();
 
-private:
+protected:
   std::vector<Module*> modules;
-  std::vector<Message*> messages;
+  MessageList messages;
 };
 #endif

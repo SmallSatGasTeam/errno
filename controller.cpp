@@ -4,11 +4,9 @@
 
 bool Controller::broadcast(Message* message){
   if(!message){return 0;} //If message is null, forget about it
-
   for(int i = 0; i < modules.size(); i++){
     modules[i]->receive(message);
   }
-  messages.push_back(message);
   return 1;
 }
 
@@ -20,9 +18,13 @@ bool Controller::broadcast(Message* message){
 
 bool Controller::readModules(){
   for(int i = 0; i < modules.size(); i++){
-    std::vector<Message*> temp = modules[i]->read();
+    Message* temp = modules[i]->read();
     for(int j = 0; j < temp.size(); j++){this->broadcast(temp[j]);}
-    messages.insert(messages.end(), temp.begin(), temp.end());
+    messages.addMessage(temp);
   }
   return 1;
+}
+
+Message* Controller::getMessages(){
+  return messages.readMessages();
 }

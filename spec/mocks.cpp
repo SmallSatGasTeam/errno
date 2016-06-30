@@ -1,16 +1,16 @@
 #include "../controller.hpp"
 #include "../modules/SensorModule/sensor.hpp"
 
-class TestController: public Controller{
-public:
-  bool broadcast(Message* message){
-    m.push_back(message);
-    std::cout << m.size() << "\n";
-    return 1;
-  }
-
-  std::vector<Message*> m;
-};
+// class TestController: public Controller{
+// public:
+//   bool broadcast(Message* message){
+//     m.push_back(message);
+//     std::cout << m.size() << "\n";
+//     return 1;
+//   }
+//
+//   std::vector<Message*> m;
+// };
 
 
 class TestModule: public Module{
@@ -22,6 +22,7 @@ class TestModule: public Module{
   }
 
   bool receive(Message* message){
+    m = message;
     return 1;
   }
 
