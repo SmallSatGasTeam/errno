@@ -6,6 +6,8 @@
 class MessageList{
 public:
   MessageList():head(NULL), tail(NULL){};
+
+  // NOTE: add most recent message to tail
   void addMessage(Message* message);
 
   /**
