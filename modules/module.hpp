@@ -8,6 +8,7 @@
 #include <mutex>
 #include <vector>
 
+#include "../utils/MessageList.hpp"
 #include "../actions.h"
 #include "../constants.h"
 #include "../controller.hpp"
@@ -58,14 +59,8 @@ public:
    */
   virtual bool status();
 
-  /**
-   * Read from a Module's message queue. If the module is performing concurrent
-   * operations the statis mutex should be used in the sub class's
-   * implementation of read.
-   *
-   * @return - Copy of messages vector, will also erase all items in local vector
-   */
-  virtual std::vector<Message*> read();
+
+  virtual Message* read();
 
   /**
    * Pass a long running task off to another thread, and add done message to
@@ -96,8 +91,8 @@ protected:
    */
   void taskRunner(void (*task)(), Message* done);
 
-  std::vector<Message*> messages;
-  static std::mutex mtx;
+  MessageList messages;
+  std::mutex mtx;
   Controller* controller;
 };
 

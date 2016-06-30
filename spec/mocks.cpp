@@ -15,15 +15,17 @@ public:
 
 class TestModule: public Module{
   public:
-  std::vector<Message*> m;
+  Message* m;
+
+  TestModule(){
+    m = NULL;
+  }
 
   bool receive(Message* message){
-    m.push_back(message);
     return 1;
   }
 
-  std::vector<Message*> read(){return m;}
-
+  Message* read(){return m;}
 };
 
 class TestSensor: public Sensor{
