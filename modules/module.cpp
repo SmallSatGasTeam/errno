@@ -7,7 +7,6 @@
 
 #include "module.hpp"
 
-
 bool Module::receive(Message* message){
     if(!message){return 0;}
 
@@ -16,11 +15,11 @@ bool Module::receive(Message* message){
 
     switch(action){
       case EXAMPLE_ACTION:
-        //std::cout << "Example Action Received\n";
+        std::cout << "Example Action Received\n";
       break;
 
-      //default:
-        //std::cout << "Unmatching Message Recieved\n";
+      default:
+        std::cout << "Unmatching Message Recieved\n";
     }
     return 1;
 }
