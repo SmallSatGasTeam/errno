@@ -19,7 +19,10 @@ bool Controller::broadcast(Message* message){
 bool Controller::readModules(){
   for(int i = 0; i < modules.size(); i++){
     Message* temp = modules[i]->read();
-    for(int j = 0; j < temp.size(); j++){this->broadcast(temp[j]);}
+    while (temp != NULL) {
+      this->broadcast(temp);
+      temp = temp->next;
+    }
     messages.addMessage(temp);
   }
   return 1;
