@@ -1,22 +1,12 @@
 #ifndef MODULE_H
 #define MODULE_H
 
-#include <string>
-#include <sys/wait.h>
-#include <unistd.h>
-#include <thread>
-#include <mutex>
-#include <vector>
+
 
 #include "../utils/MessageList.hpp"
 #include "../actions.h"
 #include "../constants.h"
 #include "../controller.hpp"
-
-/**
- * Forward declaration of Controller class so we can use it in this class
- */
-class Controller;
 
 /**
  * Module class is a base class for abstracing one specific functionality
@@ -36,7 +26,6 @@ class Controller;
  */
 class Module{
 public:
-  Module();
 
   /**
    * Receive should be implemented by every module that is a child class of
@@ -93,7 +82,6 @@ protected:
 
   MessageList messages;
   std::mutex mtx;
-  Controller* controller;
 };
 
 #endif

@@ -1,7 +1,12 @@
+#include <string>
+#include <sys/wait.h>
+#include <unistd.h>
+#include <thread>
+#include <mutex>
+#include <vector>
+
 #include "module.hpp"
 
-
-Module::Module(){}
 
 bool Module::receive(Message* message){
     if(!message){return 0;}
