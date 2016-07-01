@@ -8,8 +8,8 @@ TEST(Controller, Broadcast) {
   Message m(0, "TestMessage");
   c.broadcast(&m);
 
-  Message* a_message = a->read();
-  Message* b_message = b->read();
+  Message* a_message = a.read();
+  Message* b_message = b.read();
 
   ASSERT_TRUE(a_message);
   ASSERT_TRUE(b_message);

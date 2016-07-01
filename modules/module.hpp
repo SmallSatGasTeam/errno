@@ -1,12 +1,13 @@
 #ifndef MODULE_H
 #define MODULE_H
 
+#include <mutex>
 
-
-#include "../utils/MessageList.hpp"
 #include "../actions.h"
 #include "../constants.h"
 #include "../controller.hpp"
+#include "../utils/MessageList.hpp"
+
 
 /**
  * Module class is a base class for abstracing one specific functionality
