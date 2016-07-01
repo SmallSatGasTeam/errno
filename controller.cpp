@@ -4,7 +4,7 @@
 
 bool Controller::broadcast(Message* message){
   if(!message){return 0;} //If message is null, forget about it
-  for(int i = 0; i < modules.size(); i++){
+  for(int i = 0; i < modules.size(); ++i){
     modules[i]->receive(message);
   }
   return 1;
@@ -17,7 +17,7 @@ bool Controller::broadcast(Message* message){
 }
 
 bool Controller::readModules(){
-  for(int i = 0; i < modules.size(); i++){
+  for(int i = 0; i < modules.size(); ++i){
     Message* temp = modules[i]->read();
     while (temp != NULL) {
       this->broadcast(temp);
