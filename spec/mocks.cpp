@@ -9,6 +9,14 @@ class TestModule: public Module{
     m = NULL;
   }
 
+class TestModule: public Module{
+  public:
+  Message* m;
+
+  TestModule(){
+    m = NULL;
+  }
+
   bool receive(Message* message){
     m = message;
     return 1;
