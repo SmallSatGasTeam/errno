@@ -1,33 +1,21 @@
 #include "../controller.hpp"
 #include "../modules/SensorModule/sensor.hpp"
 
-// class TestController: public Controller{
-// public:
-//   bool broadcast(Message* message){
-//     m.push_back(message);
-//     std::cout << m.size() << "\n";
-//     return 1;
-//   }
-//
-//   std::vector<Message*> m;
-// };
+class TestModule: public Module{
+  public:
+  Message* m;
 
+  TestModule(){
+    m = NULL;
+  }
 
-// class TestModule: public Module{
-//   public:
-//   Message* m;
-//
-//   TestModule(){
-//     m = NULL;
-//   }
-//
-//   bool receive(Message* message){
-//     m = message;
-//     return 1;
-//   }
-//
-//   Message* read(){return m;}
-// };
+  bool receive(Message* message){
+    m = message;
+    return 1;
+  }
+
+  Message* read(){return m;}
+};
 
 // class TestSensor: public Sensor{
 //   std::string read(){return "TestReading";}
