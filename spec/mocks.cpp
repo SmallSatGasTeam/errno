@@ -1,13 +1,6 @@
 #include "../controller.hpp"
 #include "../modules/SensorModule/sensor.hpp"
 
-class TestModule: public Module{
-  public:
-  Message* m;
-
-  TestModule(){
-    m = NULL;
-  }
 
 class TestModule: public Module{
   public:
