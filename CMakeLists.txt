@@ -11,4 +11,4 @@ add_executable(
   main.cpp
 )
 
-target_link_libraries(GAS pthread)
+target_link_libraries(GAS.bin pthread)
