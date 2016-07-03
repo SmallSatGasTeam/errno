@@ -4,18 +4,23 @@
 
 class TestModule: public Module{
   public:
-  Message* m;
+  Message* message;
+  MessageList m;
 
   TestModule(){
-    m = NULL;
+    message = new Message(1,"TestMessage");
   }
 
   bool receive(Message* message){
-    m = message;
+    m.addMessage(message);
     return 1;
   }
 
-  Message* read(){return m;}
+  Message* test_getBroadcastMessage(){
+    return m.readMessages();
+  }
+
+  Message* read(){return message;}
 };
 
 // class TestSensor: public Sensor{

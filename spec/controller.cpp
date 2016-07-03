@@ -8,8 +8,8 @@ TEST(Controller, Broadcast) {
   Message m(0, "TestMessage");
   c.broadcast(&m);
 
-  Message* a_message = a.read();
-  Message* b_message = b.read();
+  Message* a_message = a.test_getBroadcastMessage();
+  Message* b_message = b.test_getBroadcastMessage();
 
   ASSERT_TRUE(a_message);
   ASSERT_TRUE(b_message);
@@ -27,10 +27,18 @@ TEST(Controller, Read_Modules) {
   Message m(1, "TestMessage");
   c.addModule(&a);
   c.addModule(&b);
+
   c.broadcast(&m);
   c.readModules();
 
-  Message* messages = c.getMessages();
-  // EXPECT_EQ(messages.size(), 3);
-  // if(messages.size()) EXPECT_EQ(messages[0]->action, 1);
+  Message* aa = c.getMessages();
+  Message* bb = aa->next;
+  Message* cc = bb->next;
+
+  ASSERT_TRUE(aa);
+  ASSERT_TRUE(bb);
+  ASSERT_FALSE(cc);
+
+  EXPECT_EQ(aa->body, "TestMessage");
+  EXPECT_EQ(bb->body, "TestMessage");
 }

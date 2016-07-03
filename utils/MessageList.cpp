@@ -4,6 +4,7 @@ void MessageList::addMessage(Message* message){
   if(!head){
     head = message;
     tail = head;
+    return;
   }
 
   tail->next = message;

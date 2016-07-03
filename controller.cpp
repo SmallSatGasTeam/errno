@@ -21,9 +21,9 @@ bool Controller::readModules(){
     Message* temp = modules[i]->read();
     while (temp != NULL) {
       this->broadcast(temp);
+      messages.addMessage(temp);
       temp = temp->next;
     }
-    messages.addMessage(temp);
   }
   return 1;
 }
