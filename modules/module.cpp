@@ -1,8 +1,11 @@
+#include <string>
+#include <sys/wait.h>
+#include <unistd.h>
+#include <thread>
+#include <mutex>
+#include <vector>
+
 #include "module.hpp"
-
-std::mutex Module::mtx;
-
-Module::Module(){}
 
 bool Module::receive(Message* message){
     if(!message){return 0;}
@@ -12,18 +15,20 @@ bool Module::receive(Message* message){
 
     switch(action){
       case EXAMPLE_ACTION:
-        //std::cout << "Example Action Received\n";
+        std::cout << "Example Action Received\n";
       break;
 
-      //default:
-        //std::cout << "Unmatching Message Recieved\n";
+      default:
+        std::cout << "Unmatching Message Recieved\n";
     }
     return 1;
 }
 
 bool Module::broadcast(Message* message){
   if(!message){return 0;}
-  messages.push_back(message);
+  Module::mtx.lock();
+  messages.addMessage(message);
+  Module::mtx.unlock();
   return 1;
 }
 
@@ -32,17 +37,8 @@ bool Module::status(){
 }
 
 void Module::taskRunner(void (*task)(), Message* done){
-  // int pid = fork();
-  // int status;
-  // if(!pid){
   task();
-  // }
-  // else{
-    // waitpid(pid, &status, 0);
-  Module::mtx.lock();
-  messages.push_back(done);
-  Module::mtx.unlock();
-  // }
+  broadcast(done);
 }
 
 void Module::runTask(void (*task)(), Message* done){
@@ -50,12 +46,11 @@ void Module::runTask(void (*task)(), Message* done){
   worker.detach();
 }
 
-std::vector<Message*> Module::read(){
+Message* Module::read(){
   // Lock down reading from messages vector in case
   // another thread is also trying to use it.
   mtx.lock();
-  std::vector<Message*> temp = messages;
+  Message* temp = messages.readMessages();
   mtx.unlock();
-  messages.erase(messages.begin(), messages.end());
   return temp;
 }

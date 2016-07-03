@@ -1,32 +1,44 @@
 
 TEST(Controller, Broadcast) {
   Controller c;
-  TestModule* a = new TestModule();
-  TestModule* b = new TestModule();
-  c.addModule(a);
-  c.addModule(b);
-  Message* m = new Message(0, "TestMessage");
-  c.broadcast(m);
+  TestModule a;
+  TestModule b;
+  c.addModule(&a);
+  c.addModule(&b);
+  Message m(0, "TestMessage");
+  c.broadcast(&m);
 
-  EXPECT_EQ(a->m.size(), 1);
-  EXPECT_EQ(b->m.size(), 1);
+  Message* a_message = a.test_getBroadcastMessage();
+  Message* b_message = b.test_getBroadcastMessage();
 
-  if(a->m.size()) EXPECT_EQ((a->m[0])->body, "TestMessage");
-  if(b->m.size()) EXPECT_EQ((b->m[0])->body, "TestMessage");
+  ASSERT_TRUE(a_message);
+  ASSERT_TRUE(b_message);
+  EXPECT_EQ(a_message->action, 0);
+  EXPECT_EQ(b_message->action, 0);
+  EXPECT_EQ(a_message->body, "TestMessage");
+  EXPECT_EQ(b_message->body, "TestMessage");
 }
 
 TEST(Controller, Read_Modules) {
   Controller c;
-  TestModule* a = new TestModule();
-  TestModule* b = new TestModule();
+  TestModule a;
+  TestModule b;
 
-  Message* m = new Message(1, "TestMessage");
-  c.addModule(a);
-  c.addModule(b);
-  c.broadcast(m);
+  Message m(1, "TestMessage");
+  c.addModule(&a);
+  c.addModule(&b);
+
+  c.broadcast(&m);
   c.readModules();
 
-  std::vector<Message*> messages = c.getMessages();
-  EXPECT_EQ(messages.size(), 3);
-  if(messages.size()) EXPECT_EQ(messages[0]->action, 1);
+  Message* aa = c.getMessages();
+  Message* bb = aa->next;
+  Message* cc = bb->next;
+
+  ASSERT_TRUE(aa);
+  ASSERT_TRUE(bb);
+  ASSERT_FALSE(cc);
+
+  EXPECT_EQ(aa->body, "TestMessage");
+  EXPECT_EQ(bb->body, "TestMessage");
 }
