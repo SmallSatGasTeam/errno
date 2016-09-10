@@ -4,6 +4,7 @@
 #include <vector>
 #include "constants.h"
 #include "modules/module.hpp"
+#include "utils/MessageList.hpp"
 
 /**
  * Forward declaration of Module so we can use it in this class

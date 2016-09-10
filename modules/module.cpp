@@ -19,7 +19,7 @@ bool Module::receive(Message* message){
         // std::cout << "Example Action Received\n";
       break;
 
-      default:
+      // default:
         // std::cout << "Unmatching Message Recieved\n";
     }
     return 1;
