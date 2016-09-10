@@ -15,11 +15,12 @@ bool Module::receive(Message* message){
 
     switch(action){
       case EXAMPLE_ACTION:
-        std::cout << "Example Action Received\n";
+        // NOTE commented out so we don't have to include iostream just for an example
+        // std::cout << "Example Action Received\n";
       break;
 
-      default:
-        std::cout << "Unmatching Message Recieved\n";
+      // default:
+        // std::cout << "Unmatching Message Recieved\n";
     }
     return 1;
 }

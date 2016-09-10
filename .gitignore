@@ -1,6 +1,2 @@
 *.out
-spec/CMakeFiles/
-spec/CMakeCache.txt
-spec/cmake_install.cmake
-spec/Makefile
-spec/runTests
+*.bin
