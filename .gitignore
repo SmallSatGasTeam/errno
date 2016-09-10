@@ -4,3 +4,8 @@ spec/CMakeCache.txt
 spec/cmake_install.cmake
 spec/Makefile
 spec/runTests
+GAS.bin
+Makefile
+cmake_install.cmake
+CMakeCache.txt
+CMakeFiles/
