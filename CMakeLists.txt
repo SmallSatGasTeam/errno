@@ -6,7 +6,6 @@ add_executable(
   GAS
   controller.cpp
   modules/module.cpp
-  modules/CameraModule/CameraModule.cpp
   modules/SensorModule/SensorModule.cpp
   modules/SensorModule/TempSensor/TempSensor.cpp
   main.cpp

@@ -1,11 +1,18 @@
 #include "SensorModule.hpp"
 
-SensorModule::SensorModule(){
-  shouldRead = true;
-  readInterval = 5;
+SensorModule::SensorModule():shouldRead(true), readInterval(5){
+  if ((this->i2cBus = open(I2C_PATH, O_RDWR)) < 0)
+  {
+   printf("Failed to open the bus. \n");
+   exit(1);
+  }
 
   std::thread reader([this]{this->readWorker();});
   reader.detach();
+};
+
+SensorModule::~SensorModule(){
+  this->i2cBus.close()
 }
 
 bool SensorModule::addSensor(Sensor* sensor){

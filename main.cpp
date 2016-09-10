@@ -3,16 +3,16 @@
 #include "actions.h"
 #include "constants.h"
 #include "controller.hpp"
-// #include "modules/CameraModule/CameraModule.hpp"
-// #include "modules/SensorModule/SensorModule.hpp"
-// #include "modules/SensorModule/TempSensor/TempSensor.hpp"
+
+#include "modules/SensorModule/SensorModule.hpp"
+//#include "modules/SensorModule/TempSensor/TempSensor.hpp"
 
 int main(void){
 	// Create controller
 	Controller controller;
 
 	// Create modules
-	// SensorModule sensors;
+	SensorModule sensors;
 
 	// Create sensors
 	// TempSensor temp_sensor;
@@ -25,7 +25,7 @@ int main(void){
   // controller.addModule(&camera);
 
    while(true){
-   		controller.readModules();
+   	 controller.readModules();
    }
   return 0;
 }
