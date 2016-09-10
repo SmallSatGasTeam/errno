@@ -5,7 +5,7 @@ CFLAGS=-Wall -std=c++11 -o $(OUTPUT)
 all: build run clean
 
 build:
-	$(CC) $(CFLAGS) utils/MessageList.cpp controller.cpp modules/module.cpp main.cpp
+	$(CC) $(CFLAGS) utils/MessageList.cpp controller.cpp modules/module.cpp modules/SensorModule/SensorModule.cpp  main.cpp
 
 run: build
 	./Gas.bin

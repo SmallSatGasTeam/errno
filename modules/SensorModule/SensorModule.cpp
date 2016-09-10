@@ -1,7 +1,14 @@
+#include <thread>
+#include <stdlib.h>
+#include <chrono>
+#include <linux/i2c-dev.h>
+#include <sys/ioctl.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include "SensorModule.hpp"
 
 SensorModule::SensorModule():shouldRead(true), readInterval(5){
-  if ((this->i2cBus = open(I2C_PATH, O_RDWR)) < 0)
+  if ((this->i2cBus = open("/dev/i2c-1", O_RDWR)) < 0)
   {
    printf("Failed to open the bus. \n");
    exit(1);
@@ -12,7 +19,7 @@ SensorModule::SensorModule():shouldRead(true), readInterval(5){
 };
 
 SensorModule::~SensorModule(){
-  this->i2cBus.close()
+	close(this->i2cBus);
 }
 
 bool SensorModule::addSensor(Sensor* sensor){
@@ -41,6 +48,6 @@ void SensorModule::readWorker(){
     std::string data = readSensors();
     Message* message = new Message(PHONE_HOME, data);
     broadcast(message);
-    sleep(readInterval);
+ //   sleep(readInterval); TODO find sleep solution
   }
 }

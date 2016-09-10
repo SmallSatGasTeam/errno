@@ -21,8 +21,8 @@ protected:
 
   std::vector<Sensor*> sensors;
   bool shouldRead;
-  unsigned uint32_t readInterval;
-  const uint32_t i2cBus;
+  const uint32_t readInterval;
+  uint32_t i2cBus;
 };
 
 
