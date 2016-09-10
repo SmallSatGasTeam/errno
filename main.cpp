@@ -3,7 +3,7 @@
 #include "actions.h"
 #include "constants.h"
 #include "controller.hpp"
-#include "modules/CameraModule/CameraModule.hpp"
+// #include "modules/CameraModule/CameraModule.hpp" TODO remove
 #include "modules/SensorModule/SensorModule.hpp"
 #include "modules/SensorModule/TempSensor/TempSensor.hpp"
 
@@ -12,7 +12,6 @@ int main(void){
 	Controller controller;
 
 	// Create modules
-        CameraModule camera;
 	SensorModule sensors;
 
 	// Create sensors
@@ -23,10 +22,10 @@ int main(void){
 	sensors.addSensor(&temp_sensor);
 
 	// Add modules
-        controller.addModule(&camera);
+  controller.addModule(&camera);
 
-         while(true){
-    	   controller.readModules();
-         } 
+   while(true){
+   	 controller.readModules();
+   }
   return 0;
 }
