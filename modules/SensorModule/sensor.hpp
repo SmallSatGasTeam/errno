@@ -3,7 +3,7 @@
 #include <string>
 class Sensor {
 public:
-	virtual std::string read() = 0;
+	virtual std::string readSensor() = 0;
 protected: 
 	
 };

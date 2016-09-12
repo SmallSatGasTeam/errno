@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "constants.h"
 #include "controller.hpp"
 
@@ -20,6 +22,9 @@ bool Controller::readModules(){
   for(int i = 0; i < modules.size(); ++i){
     Message* temp = modules[i]->read();
     while (temp != NULL) {
+
+			std::cout << "Message: " << temp->body << std::endl;
+
       this->broadcast(temp);
       messages.addMessage(temp);
       temp = temp->next;

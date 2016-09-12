@@ -6,20 +6,24 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "SensorModule.hpp"
+#include "TempSensor/TempSensor.hpp"
+#include "SensorAddress.h"
+#include "sensor.hpp"
 
 SensorModule::SensorModule():shouldRead(true), readInterval(5){
   if ((this->i2cBus = open("/dev/i2c-1", O_RDWR)) < 0)
   {
-   printf("Failed to open the bus. \n");
-   exit(1);
+	 //TODO log in error log
+    printf("Failed to open the bus. \n");
   }
-
+	
+	initializeSensors();
   std::thread reader([this]{this->readWorker();});
   reader.detach();
 };
 
 SensorModule::~SensorModule(){
-	close(this->i2cBus);
+	if(this->i2cBus >=0) close(this->i2cBus);
 }
 
 bool SensorModule::addSensor(Sensor* sensor){
@@ -38,7 +42,7 @@ bool SensorModule::receive(Message* message){
 std::string SensorModule::readSensors(){
   std::string message = "";
   for(int i = 0; i < sensors.size(); i++){
-    message += (sensors[i]->read() + ',');
+    message += (sensors[i]->readSensor() + ',');
   }
   return message;
 }
@@ -48,6 +52,11 @@ void SensorModule::readWorker(){
     std::string data = readSensors();
     Message* message = new Message(PHONE_HOME, data);
     broadcast(message);
- //   sleep(readInterval); TODO find sleep solution
+    sleep(readInterval); //TODO find sleep solution
   }
+}
+
+void SensorModule::initializeSensors(){
+  TempSensor* temp_sensor = new TempSensor(this->i2cBus, TEMP_ADDRESS);
+	addSensor(temp_sensor);
 }

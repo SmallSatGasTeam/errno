@@ -18,6 +18,7 @@ public:
 //protected:
   std::string readSensors();
   void readWorker();
+	void initializeSensors();
 
   std::vector<Sensor*> sensors;
   bool shouldRead;
