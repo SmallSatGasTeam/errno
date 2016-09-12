@@ -1,6 +1,6 @@
 CC=g++
 OUTPUT=Gas.bin
-CFLAGS=-Wall -std=c++11 -o $(OUTPUT)
+CFLAGS=-Wall -std=c++11 -o $(OUTPUT) -lpthread
 
 all: build run clean
 
@@ -11,4 +11,4 @@ run: build
 	./Gas.bin
 
 clean:
-	rm *.bin
+	rm *.bin 

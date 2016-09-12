@@ -15,7 +15,7 @@ public:
   bool receive(Message* message);
   bool addSensor(Sensor* sensor);
 
-protected:
+//protected:
   std::string readSensors();
   void readWorker();
 
