@@ -1,11 +1,10 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 #include <string>
-
-class Sensor{
+class Sensor {
 public:
-	virtual std::string read() = 0;
-
+	virtual std::string readSensor() = 0;
+protected: 
+	
 };
-
 #endif
