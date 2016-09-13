@@ -5,8 +5,6 @@
 #include <cstdint>
 #include "../I2CSensor.hpp"
 
-#include <iostream>
-
 class TempSensor: public I2CSensor{
 	public: 
 	TempSensor(int bus, int address):I2CSensor(bus, address){}
@@ -25,7 +23,6 @@ class TempSensor: public I2CSensor{
 	  uint8_t data[2];
 		read_i2c(0x05, data, 2);
     
-		std::cout << (int)data[0] << ":" << (int)data[1] << std::endl;
 		float cTemp = convertTemp(data);
    		
 		// Convert float to string

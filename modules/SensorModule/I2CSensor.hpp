@@ -11,8 +11,6 @@
 #include <unistd.h>
 #include "sensor.hpp"
 
-#include <iostream>
-
 class I2CSensor:public Sensor{
 	public:
 	I2CSensor(int i2cBus, int address):Sensor(), i2cBus(i2cBus), address(address){
@@ -21,17 +19,17 @@ class I2CSensor:public Sensor{
 
 	virtual std::string readSensor() = 0;
 protected:
-	void read_i2c(int reg, uint8_t* buff, const unsigned int size){
 
- 	  int config[1];
+	  void read_i2c(int reg, uint8_t* buff, const unsigned int size){
+
+ 	  char config[1];
 	  config[0] = reg;	
-		std::cout << "reg: " << config[0] << std::endl;
+		
 		if(_write_i2c(config, 1) != 1){
 		  printf("Failed to write to i2c device\n");
 		}
 
-		int data[1];
-		if(_read_i2c(data, 1) != size){
+		if(_read_i2c(buff, size) != size){
 		  //TODO Log errors
 			printf("Failed to read from i2c device\n");
 		}
