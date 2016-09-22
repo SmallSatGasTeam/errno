@@ -19,12 +19,27 @@ class I2CSensor:public Sensor{
 
 	virtual std::string readSensor() = 0;
 protected:
+
+	  void read_i2c(int reg, uint8_t* buff, const unsigned int size){
+
+ 	  char config[1];
+	  config[0] = reg;	
+		
+		if(_write_i2c(config, 1) != 1){
+		  printf("Failed to write to i2c device\n");
+		}
+
+		if(_read_i2c(buff, size) != size){
+		  //TODO Log errors
+			printf("Failed to read from i2c device\n");
+		}
+	}
 	
-	int read_i2c(void* buff, unsigned int buffSize){
+	int _read_i2c(void* buff, unsigned int buffSize){
 		return read(this->i2cBus, buff, buffSize);
 	}
 
-	int write_i2c(void* buff, unsigned int buffSize){
+	int _write_i2c(void* buff, unsigned int buffSize){
 		return write((int)this->i2cBus, buff, (int)buffSize);
 	}
 	
