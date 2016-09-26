@@ -30,7 +30,7 @@ public:
 
   /**
    * Receive should be implemented by every module that is a child class of
-   * Module. If message needs to be use asynchronously it should be copied
+   * Module. If message needs to be used asynchronously it should be copied
    * as there is no guarantee that message will exist after the function
    * exits. Recieve will be called with all messages that are passed to
    * controller. If your module needs to take a special action when it recieves
@@ -64,7 +64,7 @@ public:
 protected:
 
   /**
-   * Add's a message to interal message queue to be read by controller on next
+   * Adds a message to interal message queue to be read by controller on next
    * iteration of the event loop.
    *
    * @param  message to be added to queue
