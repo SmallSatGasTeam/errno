@@ -1,5 +1,5 @@
-#ifndef ERROR_LOGGER_MODULE_H
-#define ERROR_LOGGER_MODULE_H
+#ifndef ERROR_LOGGER_MODULE_HPP
+#define ERROR_LOGGER_MODULE_HPP
 
 #include "../module.hpp"
 
