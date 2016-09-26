@@ -5,6 +5,7 @@
 #include "controller.hpp"
 
 #include "modules/SensorModule/SensorModule.hpp"
+#include "modules/errorLoggerModule/errorLoggerModule.hpp"
 //#include "modules/SensorModule/TempSensor/TempSensor.hpp"
 
 int main(void){
@@ -13,9 +14,11 @@ int main(void){
 
 	// Create modules
 	SensorModule sensors;
- 
+	ErrorLoggerModule errorLogger;
+
 	// Add modules
    controller.addModule(&sensors);
+	 controller.addModule(&errorLogger);
 
    while(true){
    	 controller.readModules();
