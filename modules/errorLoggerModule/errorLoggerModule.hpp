@@ -1,7 +1,6 @@
 #ifndef ERROR_LOGGER_MODULE_H
 #define ERROR_LOGGER_MODULE_H
 
-#include <cstdint>
 #include "../module.hpp"
 
 class ErrorLoggerModule:public Module{
